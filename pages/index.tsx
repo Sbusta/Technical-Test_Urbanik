@@ -7,7 +7,16 @@ const Home: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    // Validate input based on the name attribute
+    if (name === 'name') {
+      // Allow only letters and spaces
+      const validatedValue = value.replace(/[^a-zA-Z\s]/g, '');
+      setFormData({ ...formData, [name]: validatedValue });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -40,29 +49,33 @@ const Home: React.FC = () => {
     }
   };
 
-  return (
+ return (
     <div >
       <div className='header'>
         <h1 className='title'>Contact Form</h1>
+        <div className='pattern'></div>
       </div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" value={formData.name} onChange={handleChange} pattern="[a-zA-Z]*" />
-        </label>
-        <label>
-          Email:
-          <input type="email" name="email" value={formData.email} onChange={handleChange} />
-        </label>
-        <label>
-          Message:
-          <textarea className='message'  name="message" value={formData.message} onChange={handleChange} />
-        </label>
-        <button type="submit">Submit</button>
-        {error && <p className='error'>{error}</p>}
-      </form>
+      <div className='container'>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <p>Name</p>
+            <input type="text" name="name" value={formData.name} onChange={handleChange} />
+          </label>
+          <label>
+          <p>Email</p>
+            <input type="email" name="email" value={formData.email} onChange={handleChange} />
+          </label>
+          <label>
+          <p>Message</p>
+            <textarea className='message'  name="message" value={formData.message} onChange={handleChange} />
+          </label>
+          <button type="submit">Submit</button>
+          {error && <p className='error'>{error}</p>}
+        </form>
+      </div>
     </div>
   );
 };
+
 
 export default Home;

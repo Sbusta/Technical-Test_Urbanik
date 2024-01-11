@@ -1,27 +1,56 @@
 // styles/main.scss
 body {
     font-family: 'inter', sans-serif;
-    background-color: #d6d6e7;
+    
+    background: #fb943f;
+    background: radial-gradient(circle, #fb943f 0%, #000000 45%);
+    
   }
 
-  .title{
-    color: #db7434;
+  .title{    
+    color: #ffffff;
     font-weight: bold;
+    border-radius: 16px;
+    background: #f08848b4;
+    box-shadow: 0 4px 30px #0000001a;
+    backdrop-filter: blur(8.9px);
+    -webkit-backdrop-filter: blur(8.9px);
+    padding: 1em;
   }
 
+  .pattern{
+    opacity: 0.6;
+    
+  }
+  
+  .header{
+    display: block;
+    margin-bottom: 2em;
+    border-radius: 16px;
+    
+  }
+
+  .container{
+    display: flow-root;
+    margin-left: 25% ;
+    width: 45%;
+    background: #e5e5f7b7;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.9px);
+    -webkit-backdrop-filter: blur(8.9px);
+    padding: 1em;
+  }
+  
   .error{
-    background-color: #ffffff;
     padding: 1em;
     color:#ff0000;
     font-weight: bold;
-  }
-
-  .header{
-    display: block;
-    width: 98%;
-    background-color: #ffffff;
-    margin-bottom: 4em;
-    padding: 1em;
+    border-radius: 16px;
+    background: #e5e5f7;    
+    box-shadow: 0 4px 30px #0000001a;
+    backdrop-filter: blur(8.9px);
+    -webkit-backdrop-filter: blur(8.9px);
   }
 
   form {
@@ -39,14 +68,13 @@ body {
   textarea {
     width: 100%;
     padding: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 15px; 
     
     border: none;
-    overflow: auto;
+    overflow: none;
     outline: none;
 
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
+    -webkit-box-shadow: 40px 5px 5px #000;
     box-shadow: none;
     
   }

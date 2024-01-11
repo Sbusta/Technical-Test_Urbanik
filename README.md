@@ -1,4 +1,4 @@
-# Technical-Test_Urbanik
+# Technical Test Urbanik
 
 
 ## How to use it?
